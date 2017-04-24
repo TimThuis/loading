@@ -2,13 +2,13 @@ body {
   margin: 0;
 }
 
-#loader-container-one {
+#one {
   background: black;
   width: 100vw;
   height: 100vh;
 }
 
-#loading-container-two {
+#two {
   background: black;
   width: 100vw;
   height: 100vh;
@@ -63,6 +63,8 @@ body {
 }
 
 
+
+
 #loader {
   height: 150px;
   width: 150px;
@@ -114,4 +116,98 @@ body {
   0% { transform: rotate(0deg); }
   50% { transform: rotate(360deg); }
   100% { transform: rotate(360deg); }
+}
+
+#three {
+  background: black;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  .box {
+    position: absolute;
+    left: calc(50% - 50px);
+    top: calc(50% - 50px);
+    perspective: 15em;
+    .bar {
+      height: 12.5px;
+      width: 100px;
+      animation: rotationSingleBar 5s infinite;
+    }
+    .bar:nth-child(1) {
+      animation-delay: 0s;
+    }
+    .bar:nth-child(2) {
+      animation-delay: 0.1s;
+    }
+    .bar:nth-child(3) {
+      animation-delay: 0.2s;
+    }
+    .bar:nth-child(4) {
+      animation-delay: 0.3s;
+    }
+    .bar:nth-child(5) {
+      animation-delay: 0.4s;
+    }
+    .bar:nth-child(6) {
+      animation-delay: 0.5s;
+    }
+    .bar:nth-child(7) {
+      animation-delay: 0.6s;
+    }
+    .bar:nth-child(8) {
+      animation-delay: 0.7s;
+    }
+  }
+}
+
+@keyframes rotationSingleBar {
+  0% {
+    transform: rotateY(0deg);
+    background: #455D7A;
+  }
+  50% {
+    transform: rotateY(180deg);
+    background: #F95959;
+  }
+  100% {
+    transform: rotateY(360deg);
+    background: #455D7A;
+  }
+}
+
+#four {
+  background: black;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  .box {
+    position: absolute;
+    height: 100px;
+    left: calc(50% - 64px);
+    top: calc(50% - 50px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .sphere {
+    height: 20px;
+    width: 20px;
+    margin: 6px;
+    border-radius: 50%;
+    background: white;
+    animation: animationSphere 2.5s infinite;
+    animation-timing-function: ease-in-out
+  }
+  .sphere:nth-child(1) { animation-delay: 0.25s; background: #E23E57 }
+  .sphere:nth-child(2) { animation-delay: 0.5s; background: #88304E }
+  .sphere:nth-child(3) { animation-delay: 0.75s; background: #522546 }
+  .sphere:nth-child(4) { animation-delay: 1s; background: #311D3F }
+}
+
+@keyframes animationSphere {
+  0% { transform: translateY(0px); }
+  25% { transform: translateY(0px); }
+  50% { transform: translateY(-16px); }
+  75% { transform: translateY(0px); }
+  100% { transform: translateY(0px); }
 }
