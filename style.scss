@@ -211,3 +211,40 @@ body {
   75% { transform: translateY(0px); }
   100% { transform: translateY(0px); }
 }
+
+#five {
+  background: black;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+    .sphere {
+      position: absolute;
+      width: 21px;
+      height: 21px;
+      border-radius: 50%;
+      animation: rotation 2s infinite;
+      mix-blend-mode: screen;
+      top: calc(50% - 12px);
+      left: calc(50% - 12px);
+    }
+    .one {
+      background: #700961;
+      transform-origin: 100% 0%;
+    }
+    .two {
+      background: #B80D57;
+      transform-origin: 100% 100%;
+    }
+    .three {
+      background: #E03E36;
+      transform-origin: 0% 100%;
+    }
+    .four {
+      background: #FF7C38;
+      transform-origin: 0% 0%;
+    }
+}
+@keyframes rotation {
+  0% { transform: rotate(0deg);  }
+  100% { transform: rotate(360deg); }
+}
