@@ -1,24 +1,82 @@
 body {
   margin: 0;
+  background: black;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+@media screen and (max-width: 900px) {
+    body {
+        flex-direction: column;
+    }
+}
+
+.loading-container {
+    margin: 36px 24px;
 }
 
 #one {
-  background: black;
-  width: 100vw;
-  height: 100vh;
+  #circle-loader {
+    height: 125px;
+    width: 125px;
+    border: 4px solid transparent;
+    border-top-color: #EA5455;
+    border-radius: 50%;
+    animation: rotateCircleLoaderLarge 3s infinite;
+    &:before {
+      content: "";
+      border: 4px solid transparent;
+      border-top-color: #F07B3F;
+      position: absolute;
+      border-radius: 50%;
+      left: 5px;
+      top: 5px;
+      bottom: 5px;
+      right: 5px;
+      animation: rotateCircleLoaderMedium 3s infinite;
+    }
+    &:after {
+      content: "";
+      border: 4px solid transparent;
+      border-top-color: #FFD460;
+      position: absolute;
+      border-radius: 50%;
+      left: 15px;
+      top: 15px;
+      bottom: 15px;
+      right: 15px;
+      animation: rotateCircleLoaderSmall 3s infinite;
+    }
+  }
 }
 
+@keyframes rotateCircleLoaderLarge {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes rotateCircleLoaderMedium {
+  0% { transform: rotate(0deg); }
+  75% { transform: rotate(360deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes rotateCircleLoaderSmall {
+  0% { transform: rotate(0deg); }
+  50% { transform: rotate(360deg); }
+  100% { transform: rotate(360deg); }
+}
+
+// >>>> loading animation two <<<<
+
 #two {
-  background: black;
-  width: 100vw;
-  height: 100vh;
-  position: relative;
-  #loading-bars {
-    position: absolute;
-    height: 68px;
-    width: 60px;
-    left: calc(50% - 30px);
-    top: calc(50% - 34px);
+  #bars-loader {
+    height: 100px;
+    width: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,30 +84,25 @@ body {
       width: 8px;
       margin: 2px;
       border-radius: 999px;
+      animation: growAnimation 1.5s infinite;
     }
     .bar:first-child {
       background: #E63946;
-      animation: growAnimation 1.5s infinite;
-
     }
     .bar:nth-child(2) {
       background: #F1FAEE;
-      animation: growAnimation 1.5s infinite;
       animation-delay: 0.1s;
      }
     .bar:nth-child(3) {
       background: #A8DADC;
-      animation: growAnimation 1.5s infinite;
       animation-delay: 0.2s;
      }
     .bar:nth-child(4) {
       background: #457B9D;
-      animation: growAnimation 1.5s infinite;
       animation-delay: 0.3s;
      }
     .bar:last-child {
       background: #1D3557;
-      animation: growAnimation 1.5s infinite;
       animation-delay: 0.4s;
      }
   }
@@ -62,105 +115,31 @@ body {
   100% { height: 32px; }
 }
 
-
-
-
-#loader {
-  height: 150px;
-  width: 150px;
-  position: absolute;
-  top: calc(50% - 75px);
-  left: calc(50% - 75px);
-  border: 4px solid transparent;
-  border-top-color: #EA5455;
-  border-radius: 50%;
-  animation: rotationAnimationMaster 3s infinite;
-  &:before {
-    content: "";
-    border: 4px solid transparent;
-    border-top-color: #F07B3F;
-    position: absolute;
-    border-radius: 50%;
-    left: 5px;
-    top: 5px;
-    bottom: 5px;
-    right: 5px;
-    animation: rotationAnimationMedium 3s infinite;
-  }
-  &:after {
-    content: "";
-    border: 4px solid transparent;
-    border-top-color: #FFD460;
-    position: absolute;
-    border-radius: 50%;
-    left: 15px;
-    top: 15px;
-    bottom: 15px;
-    right: 15px;
-    animation: rotationAnimationSmall 3s infinite;
-  }
-}
-
-@keyframes rotationAnimationMaster {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-@keyframes rotationAnimationMedium {
-  0% { transform: rotate(0deg); }
-  75% { transform: rotate(360deg); }
-  100% { transform: rotate(360deg); }
-}
-
-@keyframes rotationAnimationSmall {
-  0% { transform: rotate(0deg); }
-  50% { transform: rotate(360deg); }
-  100% { transform: rotate(360deg); }
-}
+// >>>> loading animation three <<<<
 
 #three {
-  background: black;
-  height: 100vh;
-  width: 100vw;
-  position: relative;
-  .box {
+  height: 100px;
+  width: 100px;
+  .swivel-loader {
     position: absolute;
-    left: calc(50% - 50px);
-    top: calc(50% - 50px);
     perspective: 15em;
     .bar {
       height: 12.5px;
       width: 100px;
-      animation: rotationSingleBar 5s infinite;
+      animation: swivelBar 5s infinite;
     }
-    .bar:nth-child(1) {
-      animation-delay: 0s;
-    }
-    .bar:nth-child(2) {
-      animation-delay: 0.1s;
-    }
-    .bar:nth-child(3) {
-      animation-delay: 0.2s;
-    }
-    .bar:nth-child(4) {
-      animation-delay: 0.3s;
-    }
-    .bar:nth-child(5) {
-      animation-delay: 0.4s;
-    }
-    .bar:nth-child(6) {
-      animation-delay: 0.5s;
-    }
-    .bar:nth-child(7) {
-      animation-delay: 0.6s;
-    }
-    .bar:nth-child(8) {
-      animation-delay: 0.7s;
-    }
+    .bar:nth-child(1) { animation-delay: 0s; }
+    .bar:nth-child(2) { animation-delay: 0.1s; }
+    .bar:nth-child(3) { animation-delay: 0.2s; }
+    .bar:nth-child(4) { animation-delay: 0.3s; }
+    .bar:nth-child(5) { animation-delay: 0.4s; }
+    .bar:nth-child(6) { animation-delay: 0.5s; }
+    .bar:nth-child(7) { animation-delay: 0.6s; }
+    .bar:nth-child(8) { animation-delay: 0.7s; }
   }
 }
 
-@keyframes rotationSingleBar {
+@keyframes swivelBar {
   0% {
     transform: rotateY(0deg);
     background: #455D7A;
@@ -175,36 +154,27 @@ body {
   }
 }
 
+// >>>> loading animation three <<<<
+
 #four {
-  background: black;
-  height: 100vh;
-  width: 100vw;
-  position: relative;
-  .box {
-    position: absolute;
-    height: 100px;
-    left: calc(50% - 64px);
-    top: calc(50% - 50px);
+  .sphere-loader {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    .sphere {
+      height: 20px;
+      width: 20px;
+      margin: 6px;
+      border-radius: 50%;
+      animation: moveSphere 2.5s infinite;
+      animation-timing-function: ease-in-out
+    }
+    .sphere:nth-child(1) { animation-delay: 0.25s; background: #E23E57 }
+    .sphere:nth-child(2) { animation-delay: 0.5s; background: #88304E }
+    .sphere:nth-child(3) { animation-delay: 0.75s; background: #522546 }
+    .sphere:nth-child(4) { animation-delay: 1s; background: #311D3F }
   }
-  .sphere {
-    height: 20px;
-    width: 20px;
-    margin: 6px;
-    border-radius: 50%;
-    background: white;
-    animation: animationSphere 2.5s infinite;
-    animation-timing-function: ease-in-out
-  }
-  .sphere:nth-child(1) { animation-delay: 0.25s; background: #E23E57 }
-  .sphere:nth-child(2) { animation-delay: 0.5s; background: #88304E }
-  .sphere:nth-child(3) { animation-delay: 0.75s; background: #522546 }
-  .sphere:nth-child(4) { animation-delay: 1s; background: #311D3F }
 }
 
-@keyframes animationSphere {
+@keyframes moveSphere {
   0% { transform: translateY(0px); }
   25% { transform: translateY(0px); }
   50% { transform: translateY(-16px); }
@@ -212,39 +182,40 @@ body {
   100% { transform: translateY(0px); }
 }
 
+// >>>> loading animation three <<<<
+
 #five {
-  background: black;
-  height: 100vh;
-  width: 100%;
+  height: 100px;
+  width: 100px;
   position: relative;
     .sphere {
       position: absolute;
-      width: 21px;
-      height: 21px;
+      width: 20px;
+      height: 20px;
       border-radius: 50%;
-      animation: rotation 2s infinite;
+      animation: sphereRotation 1.5s infinite;
       mix-blend-mode: screen;
-      top: calc(50% - 12px);
-      left: calc(50% - 12px);
+      top: calc(50% - 10px);
+      left: calc(50% - 10px);
     }
     .one {
       background: #700961;
-      transform-origin: 100% 0%;
+      transform-origin: 150% -50%;
     }
     .two {
       background: #B80D57;
-      transform-origin: 100% 100%;
+      transform-origin: 150% 150%;
     }
     .three {
       background: #E03E36;
-      transform-origin: 0% 100%;
+      transform-origin: -50% 150%;
     }
     .four {
       background: #FF7C38;
-      transform-origin: 0% 0%;
+      transform-origin: -50% -50%;
     }
 }
-@keyframes rotation {
+@keyframes sphereRotation {
   0% { transform: rotate(0deg);  }
   100% { transform: rotate(360deg); }
 }
