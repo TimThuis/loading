@@ -189,6 +189,8 @@ body {
   height: 100px;
   width: 100px;
   position: relative;
+  animation: blockRotation 6s infinite;
+  animation-timing-function: linear;
     .sphere {
       position: absolute;
       width: 20px;
@@ -217,6 +219,11 @@ body {
     }
 }
 @keyframes sphereRotation {
+  0% { transform: rotate(0deg);  }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes blockRotation {
   0% { transform: rotate(0deg);  }
   100% { transform: rotate(360deg); }
 }
